@@ -9,7 +9,7 @@ podTemplate(container: [
       container('kaniko') {
         stage('Build and Push image to dockerhub') {
           sh '''
-            /kaniko/executor --context `pwd` --destination hakobmkoyan772/kaniko-test-image:0.1.0
+            /kaniko/executor --context `pwd` --destination hakobmkoyan771/kaniko-test-image:0.1.0
           '''
         }
       }
