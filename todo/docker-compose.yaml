@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  go-app:
+    container_name: go-app
+    image: hakobmkoyan771/go-todo:latest
+    networks:
+      - abra-i2c-webhook
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    environment:
+       DATABASE_HOST: "172.18.0.2"
+       DATABASE_USER: "postgres"
+       DATABASE_PASSWORD: "postgres"
+       DATABASE_PORT: 5432
+
+  postgres:
+    container_name: postgres
+    hostname: postgres
+    image: postgres:12.8-alpine3.14
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    networks:
+      - abra-i2c-webhook
+    volumes:
+      - 'postgres-data:/var/opt/postgres'
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:3.6
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    networks:
+      - abra-i2c-webhook
+
+networks:
+  abra-i2c-webhook:
+    name: abra-i2c-webhook
+
+volumes:
+  postgres-data:
