@@ -9,7 +9,9 @@ pipeline {
         }
       }
       steps {
-        sh ''
+        sh '''
+          /kaniko/executor --context `pwd` --destination hakobmkoyan771/kaniko-test:0.1.0
+        '''
       }
     }
   }
