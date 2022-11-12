@@ -9,6 +9,10 @@ spec:
       volumeMounts:
         - name: kaniko-secret
           mountPath: /secret
+      args:
+        - 'sleep'
+      command:
+        - '99d'
       env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: /secret/kaniko-secret.json
