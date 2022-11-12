@@ -12,7 +12,7 @@ spec:
       args:
         - 'sleep'
       command:
-        - '99d'
+        - '999999'
       env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: /secret/kaniko-secret.json
