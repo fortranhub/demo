@@ -1,5 +1,11 @@
-FROM ubuntu
+FROM golang
 
 USER 0
 
-RUN apt update && apt install net-tools -y
+COPY ./todo /app
+
+WORKDIR /app
+
+RUN go mod tidy
+
+CMD ["go", "run"]
