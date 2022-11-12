@@ -7,15 +7,12 @@ spec:
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       volumeMounts:
-        - name: kaniko-secret
-          mountPath: /secret
+        - name: docker-config
+          mountPath: /kaniko/.docker/
       command:
         - 'sleep'
       args:
         - '999999'
-      env:
-        - name: docker-config
-          value: /kaniko/.docker/
   restartPolicy: Never
   volumes:
     - name: docker-config
