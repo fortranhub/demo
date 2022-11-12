@@ -2,14 +2,11 @@ pipeline {
   agent none
   
   stages {
-    stage('nginx') {
+    stage('Create kaniko secret') {
       agent {
         kubernetes {
-          yamlFile 'nginx.yaml'
+          yamlFile 'kaniko-secret.yaml'
         }
-      }
-      steps {
-        sh "echo hello world" 
       }
     }
   }
