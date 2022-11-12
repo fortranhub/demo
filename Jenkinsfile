@@ -5,7 +5,7 @@ pipeline {
     stage('Build image') {
       agent {
         kubernetes {
-          yamlFile: 'kaniko.yaml' 
+          yamlFile 'kaniko.yaml' 
         }
       }
       steps {
