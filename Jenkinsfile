@@ -8,6 +8,9 @@ pipeline {
           yamlFile 'kaniko-secret.yaml'
         }
       }
+      steps {
+        sh "echo" 
+      }
     }
   }
 }
