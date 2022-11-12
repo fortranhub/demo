@@ -14,10 +14,10 @@ spec:
       args:
         - '999999'
       env:
-        - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: /secret/kaniko-secret.json
+        - name: docker-config
+          value: /kaniko/.docker/
   restartPolicy: Never
   volumes:
-    - name: kaniko-secret
+    - name: docker-config
       secret:
-        secretName: kaniko-secret
+        secretName: docker-config
