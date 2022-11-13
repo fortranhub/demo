@@ -2,7 +2,7 @@ FROM golang
 
 USER 0
 
-COPY ./todo /app
+COPY ./todo/* /app/
 
 WORKDIR /app
 
