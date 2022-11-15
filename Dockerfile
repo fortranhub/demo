@@ -7,5 +7,3 @@ COPY ./todo/* /app/
 WORKDIR /app
 
 RUN go mod tidy
-
-CMD ["go", "run"]
